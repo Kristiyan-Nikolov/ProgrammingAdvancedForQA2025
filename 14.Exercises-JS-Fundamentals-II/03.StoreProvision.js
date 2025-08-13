@@ -1,0 +1,59 @@
+// 3. Store Provision
+
+// You will receive two arrays. The first array represents the current stock of the local store. 
+// The second array will contain products that the store has ordered for delivery.
+
+// The following information applies to both arrays:
+
+// Every even index will hold the name of the product and every odd index will hold the quantity of that product. 
+// The second array could contain products that are already in the local store. 
+// If that happens increase the quantity for the given product. 
+// You should store them into an object, and print them in the following format: (product -> quantity)
+
+// All of the arrays’ values will be strings.
+// INPUT 
+// ['Chips', '5', 'CocaCola', '9', 'Bananas','14', 'Pasta', '4', 'Beer', '2'], 
+// ['Flour', '44', 'Oil', '12', 'Pasta', '7', 'Tomatoes', '70', 'Bananas', '30']
+// OUTPUT 
+// Chips -> 5 
+// CocaCola -> 9 
+// Bananas -> 44 
+// Pasta -> 11 
+// Beer -> 2 
+// Flour -> 44 
+// Oil -> 12 
+// Tomatoes -> 70
+
+function storeProvision(currentStock, deliveryRequest){
+    storeProvisions = {}
+    // class Provision{
+    //     constructor(product, quantity){
+    //         this.product = product
+    //         this.quantity = quantity
+    //     }
+    //     printProvision(){
+    //         console.log(`${this.product} -> ${this.quantity}`)
+    //     }
+    
+    for(let i = 0; i < currentStock.length; i+=2){
+        let product = currentStock[i]
+        let quantity = Number(currentStock[i+1])
+        storeProvisions[product]= quantity
+    }
+    for (let j = 0; j < deliveryRequest.length; j+=2){
+        let product = deliveryRequest[j]
+        let quantity = Number(deliveryRequest[j+1])
+        if (storeProvisions.hasOwnProperty(product)){
+            storeProvisions[product]+= quantity
+        } else {
+            storeProvisions[product]= quantity
+        }
+    }
+    for (const key in storeProvisions) {
+        console.log(`${key} -> ${storeProvisions[key]}`)
+        
+    }
+}
+storeProvision(['Chips', '5', 'CocaCola', '9', 'Bananas','14', 'Pasta', '4', 'Beer', '2'],
+    ['Flour', '44', 'Oil', '12', 'Pasta', '7', 'Tomatoes', '70', 'Bananas', '30']
+)
