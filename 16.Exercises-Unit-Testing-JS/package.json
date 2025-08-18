@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "chai": "^5.2.1",
+    "mocha": "^11.7.1"
+  },
+  "name": "16.exercises-unit-testing-js",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "06.FoodDelivery.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
